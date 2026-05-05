@@ -13,7 +13,7 @@ function Tasks() {
       return
     }
 
-    axios.get("http://localhost:8080/api/tasks", {
+    axios.get("https://task-manager-backend-2-qbwk.onrender.com/api/tasks", {
       headers: {
         Authorization: `Bearer ${token}`
       }
