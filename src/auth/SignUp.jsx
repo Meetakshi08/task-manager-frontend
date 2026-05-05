@@ -16,7 +16,7 @@ function SignUp() {
         try {
 
             const res = await axios.post(
-                "http://localhost:8080/auth/signUp",
+                "https://task-manager-backend-2-qbwk.onrender.com/auth/signUp",
                 {
                     userName: name,
                     email,
@@ -60,7 +60,6 @@ function SignUp() {
 
                 </div>
 
-                {/* Name */}
                 <div>
 
                     <label>Name</label>
@@ -84,7 +83,6 @@ function SignUp() {
 
                 </div>
 
-                {/* Email */}
                 <div>
 
                     <label>Email</label>
@@ -108,7 +106,6 @@ function SignUp() {
 
                 </div>
 
-                {/* Password */}
                 <div>
 
                     <label>Password</label>

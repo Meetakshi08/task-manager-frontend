@@ -8,45 +8,70 @@ function LogIn() {
   const [email, setEmail] = useState("")
   const [password, setPassword] = useState("")
 
-  const handleLogin = (e) => {
+  const handleLogin = async (e) => {
+
     e.preventDefault()
 
-    axios.post("http://localhost:8080/auth/login", {
-      email,
-      password
-    })
-    .then(res => {
+    try {
+
+      const res = await axios.post(
+        "https://task-manager-backend-2-qbwk.onrender.com/auth/login",
+        {
+          email,
+          password
+        }
+      )
 
       const token = res.data.trim()
 
-      // ✅ store JWT
+      // Save JWT Token
       localStorage.setItem("token", token)
 
       alert("Login successful")
 
       window.location.href = "/tasks"
-    })
-   .catch((error) => {
-   console.log(error.response);
-   alert(error.response?.data || "Login failed");
-})
+
+    } catch (error) {
+
+      console.log(error.response)
+
+      alert(error.response?.data || "Login failed")
+    }
   }
 
   return (
     <div className='h-screen flex justify-center items-center bg-gray-200'>
-      
-      <form onSubmit={handleLogin} className='w-96 bg-white p-6 rounded-lg shadow-md flex flex-col gap-5'>
+
+      <form
+        onSubmit={handleLogin}
+        className='w-96 bg-white p-6 rounded-lg shadow-md flex flex-col gap-5'
+      >
 
         <div className='flex flex-col items-center gap-2'>
-          <FontAwesomeIcon icon={faLock} className='text-3xl bg-cyan-200 p-3 rounded-full'/>
-          <h1 className='text-xl font-semibold'>Welcome Back</h1>
-          <p className='text-gray-500'>Login to your account</p>
+          <FontAwesomeIcon
+            icon={faLock}
+            className='text-3xl bg-cyan-200 p-3 rounded-full'
+          />
+
+          <h1 className='text-xl font-semibold'>
+            Welcome Back
+          </h1>
+
+          <p className='text-gray-500'>
+            Login to your account
+          </p>
         </div>
 
         <div>
           <label>Email</label>
+
           <div className='flex items-center border rounded-md px-2'>
-            <FontAwesomeIcon icon={faEnvelope} className='text-gray-500'/>
+
+            <FontAwesomeIcon
+              icon={faEnvelope}
+              className='text-gray-500'
+            />
+
             <input
               type='email'
               placeholder='Enter your email'
@@ -59,8 +84,14 @@ function LogIn() {
 
         <div>
           <label>Password</label>
+
           <div className='flex items-center border rounded-md px-2'>
-            <FontAwesomeIcon icon={faLock} className='text-gray-500'/>
+
+            <FontAwesomeIcon
+              icon={faLock}
+              className='text-gray-500'
+            />
+
             <input
               type='password'
               placeholder='Enter your password'
@@ -71,10 +102,12 @@ function LogIn() {
           </div>
         </div>
 
-        <button type='submit' className='bg-cyan-500 text-white h-10 rounded-md hover:bg-cyan-600'>
+        <button
+          type='submit'
+          className='bg-cyan-500 text-white h-10 rounded-md hover:bg-cyan-600'
+        >
           Login
         </button>
-        
 
       </form>
     </div>
