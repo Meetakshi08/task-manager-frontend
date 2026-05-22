@@ -20,8 +20,7 @@ function Dash() {
       <Button onClick={()=> navigate("/tasks")}icon={faList} name="My Tasks" />
       <Button onClick={()=> navigate("/add")} icon={faHardDrive} name="Add Tasks" />
       {/* <Button icon={faCalendar} name="Calendar" /> */}
-      <Button onClick={()=> navigate("/setting")} icon={faGear} name="Settings" />
-
+      
 
     
     </div>
