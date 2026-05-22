@@ -4,7 +4,6 @@ import { faBell , faChartBar, faCheck, faCircleMinus, faMagnifyingGlass, faPlus,
 import Card from './Card'
 import Tasks from './Tasks'
 import { getTasks } from '../axios'
-import Options from './Options'
 function RightSide() {
 
   const [tasks, setTasks] = useState([]);
@@ -66,7 +65,6 @@ function RightSide() {
 
       {/* Task List */}
       <Tasks tasks={tasks} />
-<Options/>
         
       
 
