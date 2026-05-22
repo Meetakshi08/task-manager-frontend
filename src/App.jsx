@@ -6,8 +6,6 @@ import RightSide from "./DashBoard/RightSide";
 import AddTask from "./component/AddTask";
 import MyTask from "./component/MyTask";
 import Setting from "./component/Setting";
-import LogIn from "./auth/LogIn";
-import SignUp from "./auth/SignUp";
 
 function Layout({ children }) {
   return (
@@ -31,9 +29,7 @@ function App() {
     </>
   } />
 
-  <Route path="/login" element={<LogIn />} />
 
-  <Route path="/signup" element={<SignUp />} />
 
   <Route path="/dashboard" element={
     <Layout>

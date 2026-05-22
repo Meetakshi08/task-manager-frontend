@@ -4,18 +4,6 @@ const API = axios.create({
   baseURL: "https://task-manager-backend-2-qbwk.onrender.com/api/tasks"
 });
 
-// Attach JWT automatically
-API.interceptors.request.use((req) => {
-
-  const token = localStorage.getItem("token");
-
-  if (token) {
-    req.headers.Authorization = `Bearer ${token}`;
-  }
-
-  return req;
-});
-
 // GET all tasks
 export const getTasks = () => API.get("");
 
