@@ -1,7 +1,7 @@
 import axios from "axios";
 
 const API = axios.create({
-  baseURL: "https://task-manager-backend-2-qbwk.onrender.com/api/tasks"
+  baseURL: "http://localhost:8080/api/tasks"
 });
 
 // GET all tasks
